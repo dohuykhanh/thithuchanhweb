@@ -1,0 +1,51 @@
+﻿
+
+@model IEnumerable<Dohuykhanh.Models.Phim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4 col-sm-6 col-sx-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    <strong>@item.tenphim</strong>
+                </div>
+                <div class="panel-body">
+                    <p><strong>Đạo diễn: </strong>@item.daodien</p>
+                    <p><img src="@item.hinh" class="img-responsive" alt="hinh thumnail" /></p>
+                    <p><strong>Ngày chiếu: </strong>@item.ngaychieu</p>
+                    
+                    
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                        @if (@item.tenphim.Equals("MORBIUS"))
+                        {
+                            <div class="Datmua">
+                                <a class="btn btn-warning">sapchieu</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="Datmua">
+                                <a class="btn btn-success warning">dangchieu</a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    }
+
+</div>
+
